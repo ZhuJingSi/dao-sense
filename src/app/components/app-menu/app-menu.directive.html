@@ -1,0 +1,26 @@
+<div class="app-menu">
+  <div class="app-menu-left">
+    <ul id="app-menu-left-list">
+      <li data-submenu-id="profile" class="mainmenu active"><a>个人中心</a></li>
+      <li class="mainmenu"><a href="http://docs.daocloud.io/daocloud-enterprise" target="_blank">帮助</a></li>
+    </ul>
+  </div>
+  <div class="app-menu-right">
+    <div id="profile" class="submenu active">
+      <div class="submenu-container">
+        <div class="item item-top">
+          <img ng-src="assets/images/logo.png">
+          <div class="item-top-right">
+            {{vm.userInfo.name}}
+            <div class="explain">
+              {{vm.userInfo.email}}
+            </div>
+          </div>
+        </div>
+        <button class="app-setting" ng-click="vm.logout()">
+          注销
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

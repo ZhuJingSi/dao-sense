@@ -1,0 +1,32 @@
+<div class="login" id="particles-js" style="height: 100%; width: 100%">
+  <div class="login-panel">
+    <h3>DaoCloud Hub Enterprise</h3>
+    <h4>镜像仓库管理平台</h4>
+    <div class="error">{{ vm.errMsg }}</div>
+    <div class="form-field">
+      <svg class="search-icon">
+        <use xlink:href="#icon_user"></use>
+      </svg>
+      <input dao-input placeholder="用户名" ng-model="vm.name" ng-keypress="vm.enter($event)"/>
+    </div>
+    <div class="form-field">
+      <svg class="search-icon">
+        <use xlink:href="#icon_lock-small"></use>
+      </svg>
+      <input dao-input placeholder="密码" ng-model="vm.pwd" type="password"
+             ng-keypress="vm.enter($event)"/>
+    </div>
+    <div class="form-field">
+      <button class="dao-btn" ng-click="vm.login()"
+              ng-class="{'登录':'purple', '登录中':'disabled'}[vm.loginState]">{{ vm.loginState }}
+      </button>
+    </div>
+    <div class="login-footer">
+      由
+      <svg class="search-icon">
+        <use xlink:href="#icon_daocloud"></use>
+      </svg>
+      <strong>DaoCloud</strong> 强力驱动
+    </div>
+  </div>
+</div>

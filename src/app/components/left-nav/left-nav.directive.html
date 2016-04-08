@@ -1,0 +1,40 @@
+<div class="dao-left-nav">
+  <div class="dao-nav-logo" popover-trigger="outsideHover" popover-popup-close-delay="100" popover-placement="right-top" dao-popover-template="vm.appMenuTemplate" template-type="template"  ui-sref="app.dashboard">
+    <img src="assets/images/logo.png">
+  </div>
+  <div class="dao-nav-item" tooltip-placement="right" dao-tooltip="首页" ui-sref="app.dashboard" ui-sref-active="active">
+    <svg>
+      <use xlink:href="#icon_chart"></use>
+    </svg>
+  </div>
+  <div class="dao-nav-item" tooltip-placement="right" dao-tooltip="应用" ui-sref="app.application-list" ng-class="{'active': vm.ifActive('application')}">
+    <svg>
+      <use xlink:href="#icon_stack"></use>
+    </svg>
+  </div>
+  <div class="dao-nav-item" tooltip-placement="right" dao-tooltip="容器" ui-sref="app.container-list" ng-class="{'active': vm.ifActive('container')}">
+    <svg>
+      <use xlink:href="#icon_container"></use>
+    </svg>
+  </div>
+  <div class="dao-nav-item" tooltip-placement="right" dao-tooltip="存储卷" ui-sref="app.storage-list" ng-class="{'active': vm.ifActive('storage')}">
+    <svg>
+      <use xlink:href="#icon_drive"></use>
+    </svg>
+  </div>
+  <div class="dao-nav-item" tooltip-placement="right" dao-tooltip="网络" ui-sref="app.network-list" ng-class="{'active': vm.ifActive('network')}">
+    <svg>
+      <use xlink:href="#icon_radar"></use>
+    </svg>
+  </div>
+  <div class="dao-nav-item" tooltip-placement="right" dao-tooltip="主机" ui-sref="app.node-list" ng-class="{'active': vm.ifActive('node')}">
+    <svg>
+      <use xlink:href="#icon_node"></use>
+    </svg>
+  </div>
+  <div class="dao-nav-item" tooltip-placement="right" dao-tooltip="设置" ui-sref="app.settings" ng-class="{'active': vm.ifActive('settings')}">
+    <svg>
+      <use xlink:href="#icon_setting"></use>
+    </svg>
+  </div>
+</div>

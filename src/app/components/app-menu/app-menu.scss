@@ -1,0 +1,163 @@
+.app-menu {
+  display: flex;
+  min-height: 255px;
+  .app-menu-left {
+    background-color: #1f2126;
+    min-width: 125px;
+    padding: 18px 17px;
+    border-radius: 5px 0 0 5px;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      li {
+        margin-bottom: 14px;
+        a {
+          color: #fff;
+          border-bottom: 1px solid transparent;
+          cursor: pointer;
+          &:hover,
+          &:focus {
+            text-decoration: none;
+            color: currentColor;
+          }
+        }
+        &.active {
+          a {
+            border-bottom: 1px solid #fff;
+          }
+        }
+      }
+    }
+  }
+  .app-menu-right {
+    min-width: 250px;
+    border-radius: 0 5px 5px 0;
+    .submenu {
+      display: none;
+      .submenu-container {
+        padding: 18px 17px;
+        .item {
+          margin-bottom: 20px;
+          color: #9ba3af;
+          font-size: 16px;
+          img {
+            width: 30px;
+            height: 30px;
+            margin-right: 11px;
+            border-radius: 3px;
+            vertical-align: middle;
+          }
+          .title {
+            opacity: 0.4;
+            color: #9ba3af;
+            font-size: 12px;
+            font-weight: 600;
+          }
+          .num {
+            color: #9ba3af;
+            font-size: 18px;
+            font-weight: 300;
+          }
+          &.item-top {
+            display: flex;
+            line-height: 1;
+            .item-top-right {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+            }
+            .explain {
+              font-size: 12px;
+            }
+          }
+        }
+        .integration {
+          margin-bottom: 20px;
+          ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+          }
+          li {
+            margin-bottom: 7px;
+          }
+          .dao-numeric-badge {
+            margin-right: 5px;
+            color: #9ba3af;
+            background-color: rgba(155, 163, 175, 0.3);;
+          }
+          .tick {
+            float: right;
+          }
+        }
+        .app-setting {
+          display: inline-flex;
+          align-items: center;
+          padding: 10px 13px;
+          color: #f5f7fa;
+          font-size: 13px;
+          font-weight: 400;
+          border: 1px solid #595f69;
+          border-radius: 4px;
+          background-color: transparent;
+          outline: none;
+          svg {
+            width: 13px;
+            height: 13px;
+            fill: #9ba3af;
+          }
+          transition: border-color .3s;
+          &:hover,
+          &:focus {
+            border-color: #f5f7fa;
+          }
+        }
+      }
+      ul.app-list {
+        margin: 0;
+        padding: 8px 0;
+        list-style: none;
+        li {
+          padding: 10px 17px;
+          cursor: pointer;
+          vertical-align: middle;
+          .switch-to {
+            float: right;
+            color: #9ba3af;
+            cursor: pointer;
+            line-height: 30px;
+            visibility: hidden;
+            &:hover,
+            &:focus {
+              color: #fff;
+            }
+          }
+          img, svg {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+            margin-right: 11px;
+            border-radius: 3px;
+          }
+          &:hover,
+          &:focus {
+            background-color: rgba(204, 209, 217, .1);
+            .switch-to {
+              visibility: visible;
+            }
+          }
+          &.current-app {
+            cursor: default;
+            .switch-to {
+              visibility: hidden;
+            }
+          }
+        }
+      }
+      &.active {
+        display: block;
+      }
+    }
+  }
+}

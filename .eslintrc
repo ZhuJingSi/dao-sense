@@ -1,0 +1,21 @@
+{
+  "extends": "airbnb/base",
+  "plugins": ["angular"],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jasmine": true
+  },
+  "ecmaFeatures": {
+    "modules": true
+  },
+  "globals": {
+    "angular": true,
+    "module": true,
+    "inject": true,
+  },
+  "eqeqeq": [2, "allow-null"],
+  "rules": {
+    "no-param-reassign": 0
+  }
+}

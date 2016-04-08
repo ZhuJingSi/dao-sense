@@ -1,0 +1,18 @@
+<div class="dao-layout-wrap">
+   <div class="dao-layout-sidebar">
+     <left-nav></left-nav>
+   </div>
+   <div class="dao-layout-content has-topbar has-footer has-topbar-fixed">
+     <!-- <div class="warning-bar" ng-if="vm.license && !vm.license.has">{{vm.license.message}}</div> -->
+
+     <div class="content-topbar">
+       <div ui-view="topbar"></div>
+     </div>
+     <div class="content-body">
+       <div ui-view="content" autoscroll="true"></div>
+     </div>
+     <!-- <div class="content-footer text-center global-footer">
+       <div style="color: #c0c9ce;font-size: 13px">DaoCloud Hub Enterprise</div>
+     </div> -->
+   </div>
+ </div>
