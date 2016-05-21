@@ -1,11 +1,57 @@
-$warning-bg: #f1483f;
+$primary-bg: #1A89C3;
+$grey-bg: #f6f6f6;
+md-sidenav {
+  width: 200px;
+  background-color: $primary-bg;
+  color: white;
+  font-weight: 500;
+  header {
+    text-align: center;
+  }
+  md-list md-list-item .md-button {
+    margin: 0;
+    padding: 0 30px;
+  }
+  md-list-item.active .md-button,
+  .md-button:not([disabled]):hover {
+    background-color: darken($primary-bg, 10%);
+  }
+  svg.icon {
+    margin-right: 10px;
+    fill: white;
+  }
+}
 
-.warning-bar {
-	padding: 10px 14px;
-	background-color: $warning-bg;
-	font-size: 16px;
-	color: #fff;
-	line-height: 1;
-	flex: none;
-    z-index: 1;
+md-toolbar {
+  background-color: $grey-bg !important;
+  color: #202020 !important;
+  md-icon {
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: #666;
+    }
+  }
+  &.alternate .md-toolbar-tools {
+    color: #1e88e5;
+    font-size: 16px;
+    background-color: #e3f2fd;
+    .md-button {
+      background-color: $primary-bg;
+    }
+  }
+}
+
+.md-cell .md-title {
+  font-size: 18px;
+}
+
+md-checkbox.md-default-theme.md-checked .md-ink-ripple,
+md-checkbox.md-checked .md-ink-ripple {
+  color: $primary-bg;
+}
+
+md-checkbox.md-default-theme.md-checked .md-icon,
+md-checkbox.md-checked .md-icon {
+  background-color: $primary-bg;
 }

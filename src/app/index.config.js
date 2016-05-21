@@ -7,5 +7,6 @@ export const AppConfig = {
 
 export function pluginConfig(cfpLoadingBarProvider) {
   'ngInject';
+
   cfpLoadingBarProvider.includeSpinner = false;
 }

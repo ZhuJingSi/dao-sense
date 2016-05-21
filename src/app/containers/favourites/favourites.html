@@ -1,0 +1,64 @@
+<md-toolbar ng-hide="vm.selected.length">
+  <div class="md-toolbar-tools">
+    <md-button class="md-icon-button" hide-gt-sm aria-label="menu" ng-click="vm.$mdSidenav('left').toggle()">
+      <md-icon>
+        <svg>
+          <use xlink:href="#icon_menu"></use>
+        </svg>
+      </md-icon>
+    </md-button>
+    <span>{{vm.favoriteList.length}} 条收藏</span>
+  </div>
+</md-toolbar>
+<md-toolbar class="alternate" ng-show="vm.selected.length" aria-hidden="false">
+  <div class="md-toolbar-tools" layout-align="space-between center">
+    <div>{{vm.selected.length}} 个被选中的帖子</div>
+    <div>
+      <md-button ng-click="vm.batch('unfavourite')">取消收藏</md-button>
+    </div>
+  </div>
+</md-toolbar>
+<md-content flex layout-padding>
+  <md-input-container class="md-block" flex-gt-sm>
+    <label>按标题搜索</label>
+    <input ng-model="vm.search.document.title">
+  </md-input-container>
+  <md-table-container>
+    <table md-table md-row-select multiple ng-model="vm.selected">
+      <thead md-head md-order="vm.query.order" md-on-reorder="getDesserts">
+        <tr md-row>
+          <th md-column><span>楼主</span></th>
+          <th md-column><span>内容</span></th>
+          <th md-column><span>创建时间</span></th>
+          <th md-column><span>更新时间</span></th>
+          <th md-column><span>评论数</span></th>
+        </tr>
+      </thead>
+      <tbody md-body>
+        <tr md-row md-select="favorite" md-select-id="id" md-auto-select ng-repeat="favorite in vm.favoriteList | filter: vm.search" ng-show="favorite.is_favorite">
+          <td md-cell>{{favorite.document.user.name}}</td>
+          <td md-cell>
+            <p><a class="md-title" ng-href="{{favorite.url}}" target="_blank">{{favorite.document.title}}</a></p>
+            <p class="md-text">{{favorite.document.content | limitTo: 60}} {{favorite.document.content.length > 60 ? '...' : ''}}</p>
+          </td>
+          <td md-cell>{{vm.moment(favorite.document.create_ts * 1000).format('YYYY-MM-DD HH:mm:ss')}}</td>
+          <td md-cell>{{vm.moment(favorite.document.last_comment_ts * 1000).format('YYYY-MM-DD HH:mm:ss')}}</td>
+          <td md-cell>{{favorite.document.comments_num}}</td>
+          <td md-cell>
+            <md-button class="md-icon-button" aria-label="取消收藏" ng-click="vm.setAsUnFavorite([favorite.id])">
+              <svg class="icon">
+                <use xlink:href="#icon_trash"></use>
+              </svg>
+            </md-button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </md-table-container>
+  <!-- <div layout="column" layout-align="center center" ng-show="!vm.favoriteList">
+    <svg>
+      <use xlink:href="#icon_ripple"></use>
+    </svg>
+  </div> -->
+  <!-- <md-table-pagination md-limit="vm.query.limit" md-limit-options="[5, 10, 15]" md-page="vm.query.page" md-total="{{desserts.count}}" md-on-paginate="getDesserts" md-page-select></md-table-pagination> -->
+</md-content>
