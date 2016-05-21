@@ -55,7 +55,7 @@ function webpackWrapper(watch, test, callback) {
   };
 
   var DEFAULT_ENV = {
-    API_URL: '"http://192.168.2.119"',
+    API_URL: '"http://192.168.2.193:3000"',
   };
 
   var CURRENT_ENV = extend({}, DEFAULT_ENV);

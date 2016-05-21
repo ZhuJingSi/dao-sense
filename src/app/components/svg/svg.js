@@ -1,2 +1,11 @@
 // inject:svg
+import './icon_archive.svg';
+import './icon_caret-left.svg';
+import './icon_chat.svg';
+import './icon_heart.svg';
+import './icon_menu.svg';
+import './icon_ripple.svg';
+import './icon_star-hollow.svg';
+import './icon_star-solid.svg';
+import './icon_trash.svg';
 // injectend

@@ -13,10 +13,10 @@ function AuthInterceptor($q, state, AppConfig, $location) {
     },
 
     responseError(rejection) {
-      if (rejection.status === 401) {
-        state.actions.clear();
-        $location.path('login');
-      }
+      // if (rejection.status === 401) {
+      //   state.actions.clear();
+      //   $location.path('login');
+      // }
       return $q.reject(rejection);
     },
   };

@@ -1,6 +1,8 @@
 export class LayoutController {
-  constructor() {
+  constructor($mdSidenav) {
     'ngInject';
+
+    this.$mdSidenav = $mdSidenav;
 
     this.activate();
   }

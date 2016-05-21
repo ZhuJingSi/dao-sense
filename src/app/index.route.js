@@ -35,16 +35,36 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       controller: 'LayoutController',
       controllerAs: 'vm',
     })
-    .state('app.dashboard', {
-      url: '/',
+    .state('app.unread', {
+      url: '/unread',
       views: {
         content: {
-          templateUrl: 'app/containers/dashboard/dashboard.html',
-          controller: 'DashboardController',
+          templateUrl: 'app/containers/unread/unread.html',
+          controller: 'UnreadController',
+          controllerAs: 'vm',
+        },
+      },
+    })
+    .state('app.favourites', {
+      url: '/favourites',
+      views: {
+        content: {
+          templateUrl: 'app/containers/favourites/favourites.html',
+          controller: 'FavouritesController',
+          controllerAs: 'vm',
+        },
+      },
+    })
+    .state('app.history', {
+      url: '/history',
+      views: {
+        content: {
+          templateUrl: 'app/containers/history/history.html',
+          controller: 'HistoryController',
           controllerAs: 'vm',
         },
       },
     });
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/unread');
 }

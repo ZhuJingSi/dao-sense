@@ -1,0 +1,79 @@
+<md-toolbar ng-hide="vm.selected.length">
+  <div class="md-toolbar-tools" layout-align="space-between center">
+    <div>
+      <md-button class="md-icon-button" hide-gt-sm aria-label="menu" ng-click="vm.$mdSidenav('left').toggle()">
+        <md-icon>
+          <svg>
+            <use xlink:href="#icon_menu"></use>
+          </svg>
+        </md-icon>
+      </md-button>
+      <span>{{vm.readList.length}} 条已处理信息</span>
+    </div>
+  </div>
+</md-toolbar>
+<md-toolbar class="alternate" ng-show="vm.selected.length" aria-hidden="false">
+  <div class="md-toolbar-tools" layout-align="space-between center">
+    <div>{{vm.selected.length}} 个被选中的帖子</div>
+    <div>
+      <!-- <md-input-container class="md-block" flex-gt-sm>
+        <label>按标题搜索</label>
+        <input ng-model="vm.search.document.title">
+      </md-input-container> -->
+      <md-button ng-click="vm.batch('favourite')">收藏</md-button>
+      <md-button ng-click="vm.batch('unfavourite')">取消收藏</md-button>
+      <md-button ng-click="vm.batch('read')">标记为已读</md-button>
+      <md-button ng-click="vm.batch('unread')">标记为未读</md-button>
+    </div>
+  </div>
+</md-toolbar>
+<md-content flex layout-padding>
+  <md-input-container class="md-block" flex-gt-sm>
+    <label>按标题搜索</label>
+    <input ng-model="vm.search.document.title">
+  </md-input-container>
+  <md-table-container>
+    <table md-table md-row-select multiple ng-model="vm.selected">
+      <thead md-head>
+        <tr md-row>
+          <th md-column><span>楼主</span></th>
+          <th md-column><span>内容</span></th>
+          <th md-column><span>创建时间</span></th>
+          <th md-column><span>更新时间</span></th>
+          <th md-column><span>评论数</span></th>
+        </tr>
+      </thead>
+      <tbody md-body>
+        <tr md-row md-select="read" md-select-id="id" md-auto-select ng-repeat="read in vm.readList | filter: vm.search">
+          <td md-cell>{{read.document.user.name}}</td>
+          <td md-cell>
+            <p><a class="md-title" ng-class="{ visited: read.read }" ng-href="{{read.url}}" target="_blank" ng-click="vm.markRead([read.id])">{{read.document.title}}</a></p>
+            <p class="md-text">{{read.document.content | limitTo: 70}} {{read.document.content.length > 70 ? '...' : ''}}</p>
+          </td>
+          <td md-cell>{{vm.moment(read.document.create_ts * 1000).format('YYYY-MM-DD HH:mm:ss')}}</td>
+          <td md-cell>{{vm.moment(read.document.last_comment_ts * 1000).format('YYYY-MM-DD HH:mm:ss')}}</td>
+          <td md-cell>{{read.document.comments_num}}</td>
+          <td md-cell>
+            <md-button class="md-icon-button" aria-label="收藏" ng-click="vm.setAsFavorite([read.id])" ng-show="!read.is_favorite">
+              <svg class="icon">
+                <use xlink:href="#icon_star-hollow"></use>
+              </svg>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="取消收藏" ng-click="vm.setAsUnFavorite([read.id])" ng-show="read.is_favorite">
+              <svg class="icon">
+                <use xlink:href="#icon_star-solid"></use>
+              </svg>
+            </md-button>
+          </td>
+          <td md-cell>
+            <md-select ng-init="read.read = true" ng-model="read.read">
+              <md-option value="true" ng-click="vm.markRead([read.id])">已读</md-option>
+              <md-option value="false" ng-click="vm.markUnread([read.id])">未读</md-option>
+            </md-select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </md-table-container>
+  <!-- <md-table-pagination md-limit="vm.query.limit" md-limit-options="[5, 10, 15]" md-page="vm.query.page" md-total="{{vm.unreadList.length}}"></md-table-pagination> -->
+</md-content>

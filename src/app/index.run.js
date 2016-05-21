@@ -14,10 +14,10 @@ export function authHook($state, $transitions, state, userService) {
   });
 }
 
-export function addDaoVoice(daoVoiceService) {
+export function addDaoVoice() {
   'ngInject';
 
-  daoVoiceService.init();
+  // daoVoiceService.init();
 }
 
 export function redirectTo($state, $transitions) {

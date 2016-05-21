@@ -2,7 +2,6 @@
   "name": "DHE",
   "version": "0.0.0",
   "dependencies": {
-    "dao-style": "git://github.com/Ye-Ting/dao-style-package.git#master",
     "js-cookie": "^2.1.0",
     "particles.js": "^2.0.0",
     "store": "^1.3.20"

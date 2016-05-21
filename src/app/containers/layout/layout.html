@@ -1,18 +1,31 @@
-<div class="dao-layout-wrap">
-   <div class="dao-layout-sidebar">
-     <left-nav></left-nav>
-   </div>
-   <div class="dao-layout-content has-topbar has-footer has-topbar-fixed">
-     <!-- <div class="warning-bar" ng-if="vm.license && !vm.license.has">{{vm.license.message}}</div> -->
-
-     <div class="content-topbar">
-       <div ui-view="topbar"></div>
-     </div>
-     <div class="content-body">
-       <div ui-view="content" autoscroll="true"></div>
-     </div>
-     <!-- <div class="content-footer text-center global-footer">
-       <div style="color: #c0c9ce;font-size: 13px">DaoCloud Hub Enterprise</div>
-     </div> -->
-   </div>
- </div>
+<md-sidenav class="md-sidenav-left" md-whiteframe="2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+  <header><h1>DaoSense</h1></header>
+  <md-list>
+    <md-list-item ui-sref="app.unread" ui-sref-active="active">
+      <svg class="icon">
+        <use xlink:href="#icon_chat"></use>
+      </svg>
+      未读列表
+    </md-list-item>
+    <md-list-item ui-sref="app.favourites" ui-sref-active="active">
+      <svg class="icon">
+        <use xlink:href="#icon_heart"></use>
+      </svg>
+      我的收藏
+    </md-list-item>
+    <md-list-item ui-sref="app.history" ui-sref-active="active">
+      <svg class="icon">
+        <use xlink:href="#icon_archive"></use>
+      </svg>
+      历史已读
+    </md-list-item>
+  </md-list>
+  <!-- <md-button class="md-icon-button" aria-label="menu" ng-click="vm.$mdSidenav('left').toggle()">
+    <md-icon>
+      <svg class="icon">
+        <use xlink:href="#icon_caret-left"></use>
+      </svg>
+    </md-icon>
+  </md-button> -->
+</md-sidenav>
+<div ui-view="content" autoscroll="true" layout="column" flex></div>

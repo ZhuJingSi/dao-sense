@@ -1,0 +1,15 @@
+$link-color: #3581ad;
+$muted-text: rgba(0,0,0,0.54);
+
+.md-title {
+  color: $link-color;
+  &.visited {
+    color: lighten($link-color, 25%);
+  }
+  &:hover {
+    color: darken($link-color, 10%);
+  }
+}
+.md-text {
+  color: $muted-text;
+}
